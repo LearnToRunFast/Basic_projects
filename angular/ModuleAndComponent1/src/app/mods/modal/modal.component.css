@@ -1,0 +1,12 @@
+.actions:empty {
+    display: none;
+}
+
+.actions-default {
+    display: none;
+}
+
+/* the button is hidden by default by if the close me button is emtpy, I going to show the actions-default button */
+.actions:empty + .actions-default {
+    display: block;
+}
