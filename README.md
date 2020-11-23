@@ -8,3 +8,9 @@ This repo is created to hosting my training projects.
 
 ## Angular
 [To project folder](./angular)
+
+## React
+[To project folder](./react)
+
+## Docker Compose
+[To project folder](./docker_compose)
