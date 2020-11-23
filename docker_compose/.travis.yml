@@ -1,0 +1,25 @@
+sudo: required
+language: generic
+services:
+    - docker
+
+before_install:
+    # need dev dockerfile to run the test
+    - docker build -t jiang1993/react-test -f ./client/Dockerfile.dev ./client
+
+script:
+    #- docker run -e CI=true jiang1993/react-test npm run test
+
+
+after_success:
+    - docker build -t jiang1993/docker-client ./client
+    - docker build -t jiang1993/docker-nginx  ./nginx
+    - docker build -t jiang1993/docker-server ./server
+    - docker build -t jiang1993/docker-worker ./worker
+    # login with environment var with travis CI
+    - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
+    # take those images and push them to docker hub
+    - docker push jiang1993/docker-client
+    - docker push jiang1993/docker-nginx
+    - docker push jiang1993/docker-server
+    - docker push jiang1993/docker-worker
