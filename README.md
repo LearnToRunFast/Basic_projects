@@ -6,3 +6,5 @@ This repo is created to hosting my training projects.
 
 [To project folder](./ExpreeAndMongo)
 
+## Angular
+[To project folder](./angular)
